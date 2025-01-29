@@ -55,7 +55,7 @@ Imports:
     tibble,
     TxDb.Hsapiens.UCSC.hg19.knownGene,
     utils,
-    yulab.utils (>= 0.1.9)
+    yulab.utils (>= 0.2.0)
 Suggests:
     clusterProfiler,
     ggimage,
