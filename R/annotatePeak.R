@@ -48,7 +48,6 @@
 ##'
 ##' GENENAME: full gene name
 ##' @import BiocGenerics S4Vectors GenomeInfoDb
-##' @import yulab.utils
 ##' @examples
 ##' \dontrun{
 ##' require(TxDb.Hsapiens.UCSC.hg19.knownGene)
@@ -292,7 +291,7 @@ annotatePeak <- function(peak,
                    peakNum=peakNum
                    )
     }
-    if (yulab.utils:::.hi("virusPlot")) return("hi")
+
     return(res)
 }
 
