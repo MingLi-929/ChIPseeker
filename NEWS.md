@@ -1,3 +1,7 @@
+# ChIPseeker 1.44.0
+
++ Bioconductor RELEASE_3_21 (2025-04-17, Thu)
+
 # ChIPseeker 1.42.0
 
 + Bioconductor RELEASE_3_20 (2024-10-30, Wed)
