@@ -1844,11 +1844,11 @@ peakHeatmap.internal <- function(tagMatrix,
   downstream <- attr(tagMatrix, "downstream")
   binning_Flag <- attr(tagMatrix,"is.binning")
   type <- attr(tagMatrix,"type")
+  label <- attr(tagMatrix, "label")
   
   body_Flag <- FALSE
   if(type == "body"){
     body_Flag <- TRUE
-    label <- attr(tagMatrix,"label")
   }
   
   if(binning_Flag){
@@ -1945,17 +1945,28 @@ peakHeatmap.internal <- function(tagMatrix,
                                            nbin),
                                 labels = c((-1*downstream),
                                            floor(-1*downstream*0.5),
-                                           0,
+                                           label,
                                            floor(upstream*0.5),
                                            upstream))
   }else{
     
-    p <- p + scale_x_continuous(labels = function(x) x - upstream)    
+    print(label)
+    # p <- p + scale_x_continuous(labels = function(x) x - upstream)    
+    p <- p + scale_x_continuous(breaks = c(1,
+                                           floor(max(tagMatrix[,"coordinate"])*(downstream*0.5/(downstream+upstream))),
+                                           floor(max(tagMatrix[,"coordinate"])*(downstream/(downstream+upstream))),
+                                           floor(max(tagMatrix[,"coordinate"])*((downstream + upstream*0.5)/(downstream+upstream))),
+                                           max(tagMatrix[,"coordinate"])),
+                                labels = c((-1*downstream),
+                                           floor(-1*downstream*0.5),
+                                           label,
+                                           floor(upstream*0.5),
+                                           upstream))
     
   }
   
   p <- p + scale_y_continuous(expand = c(0,0))
-  
+
   p
 }
 
